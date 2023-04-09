@@ -1,0 +1,271 @@
+meta(charset="utf-8")
+meta(http-equiv="X-UA-Compatible" content="IE=edge")
+meta(name="viewport" content="width=device-width, initial-scale=1, user-scalable=0")
+meta(name="format-detection" content="telephone=no, address=no, email=no")
+
+
+//- ページ固有のメタを設定する場合は、各コメント内の設定を該当のpugファイルのvarsへ記載する
+
+
+//---------- title ----------//
+-
+    /**
+     * page.meta.title
+     * - 大元のタイトルに | でつなぐ
+     * @type {Array}
+     */
+    var title = metaData.title;
+    if (page.meta && page.meta.title) {
+        for (var i = 0; i < page.meta.title.length; i++) {
+            title = page.meta.title[i] + ' | ' + title;
+        };
+    };
+-
+title=title
+
+
+//---------- des ----------//
+-
+    /**
+     * page.meta.des
+     * - 指定した文字列で置換
+     * @type {String}
+     */
+    var des = metaData.des;
+    if (page.meta && page.meta.des) {
+        des = page.meta.des;
+    };
+-
+meta(name="description" content=des)
+
+
+//---------- keywords ----------//
+-
+    /**
+     * page.meta.key
+     * - 既存のkeywordsの末尾に追加
+     * @type {Array}
+     */
+    var key = '';
+    var keyArray = metaData.keywords;
+    if (keyArray) {
+        for (var i = 0; i < keyArray.length; i++) {
+            if (i != 0) { key += ',' };
+            key += keyArray[i];
+        };
+        if (page.meta && page.meta.key && page.meta.key.length != 0) {
+            for (var i = 0; i < page.meta.key.length; i++) {
+                key += ',' + page.meta.key[i];
+            };
+        };
+    };
+-
+- if (key != '')
+    meta(name="keywords" content=key)
+
+
+//---------- author ----------//
+- if (metaData.author)
+    meta(name="author" content=metaData.author)
+
+
+//---------- canonical ----------//
+-
+    /**
+     * page.meta.canonical
+     * - 指定した文字列で置換
+     * @type {String}
+     */
+    var canonical = metaData.canonical;
+    if (page.meta && page.meta.canonical) {
+        canonical = page.meta.canonical;
+    };
+-
+- if (canonical)
+    meta(name="canonical" content=canonical)
+
+
+//---------- og:type ----------//
+-
+    var ogType = 'website';
+    if (page.class !== 'page-home') {
+        ogType = 'article';
+    }
+-
+meta(property="og:type" content=ogType)
+
+
+//---------- og:title ----------//
+-
+    /**
+     * page.meta.ogTitle
+     * - 指定した文字列で置換
+     * @type {String}
+     */
+    var ogTitle = metaData.og.title;
+    if (page.meta && page.meta.ogTitle) {
+        ogTitle = page.meta.ogTitle;
+    };
+-
+- if (ogTitle)
+    meta(property="og:title" content=ogTitle)
+
+
+//---------- og:site_name ----------//
+- if (metaData.og.siteName)
+    meta(property="og:site_name" content=metaData.og.siteName)
+
+
+//---------- og.url ----------//
+-
+    /**
+     * page.meta.ogUrl
+     * - 大元のURLからのpathを指定
+     * @type {String}
+     */
+    var url = metaData.og.url;
+    if (page.meta && page.meta.ogUrl) {
+        url = metaData.url + page.meta.ogUrl;
+    };
+-
+- if (url)
+    meta(property="og:url" content=url)
+
+
+//---------- og:image ----------//
+-
+    /**
+     * page.meta.ogImage
+     * - 大元のURLからのpathを指定
+     * @type {String}
+     */
+    var ogImage = metaData.url + metaData.og.image;
+    if (page.meta && page.meta.ogImage) {
+        ogImage = metaData.url + page.meta.ogImage;
+    };
+-
+- if (metaData.og.image)
+    meta(property="og:image" content=ogImage)
+
+
+//---------- og:description ----------//
+-
+    /**
+     * page.meta.ogDes
+     * - 指定した文字列で置換
+     * @type {String}
+     */
+    var ogDes = metaData.og.des;
+    if (page.meta && page.meta.ogDes) {
+        ogDes = page.meta.ogDes;
+    };
+-
+- if (ogDes)
+    meta(property="og:description" content=ogDes)
+
+
+//---------- fb:app_id ----------//
+- if (metaData.og.fbAppId)
+    meta(property="fb:app_id" content=appId)
+
+
+//---------- twitter:card ----------//
+-
+    /**
+     * page.meta.twCard
+     * - 指定した文字列で置換
+     * @type {String}
+     */
+    var twCard = metaData.tw.card;
+    if (page.meta && page.meta.twCard) {
+        twCard = page.meta.twCard;
+    };
+-
+- if (twCard)
+    meta(name="twitter:card" content=twCard)
+
+
+//---------- twitter:site ----------//
+- if (metaData.tw.site)
+    meta(name="twitter:site" content=metaData.tw.site)
+
+
+//---------- twitter:title ----------//
+-
+    /**
+     * page.meta.twTitle
+     * - 指定した文字列で置換
+     * @type {String}
+     */
+    var twTitle = metaData.tw.title;
+    if (page.meta && page.meta.twTitle) {
+        twTitle = page.meta.twTitle;
+    };
+-
+- if (twTitle)
+    meta(name="twitter:title" content=twTitle)
+
+
+//---------- twitter:description ----------//
+-
+    /**
+     * page.meta.twDes
+     * - 指定した文字列で置換
+     * @type {String}
+     */
+    var twDes = metaData.tw.des;
+    if (page.meta && page.meta.twDes) {
+        twDes = page.meta.twDes;
+    };
+-
+- if (twDes)
+    meta(name="twitter:description" content=twDes)
+
+
+//---------- twitter:image ----------//
+-
+    /**
+     * page.meta.twImage
+     * - 大元のURLからのpathを指定
+     * @type {String}
+     */
+    var twImage = metaData.url + metaData.tw.image;
+    if (page.meta && page.meta.twImage) {
+        twImage = metaData.url + page.meta.twImage;
+    };
+-
+- (metaData.tw.image)
+    meta(name="twitter:image" content=twImage)
+
+
+//---------- favicon ----------//
+-
+    var favicon = null;
+    if (metaData.favicon) {
+        favicon = page.root + metaData.favicon;
+    };
+-
+- if (favicon)
+    link(rel="shortcut icon" href=favicon)
+
+
+//---------- apple-touch-icon ----------//
+-
+    var appleIcon = null;
+    if (metaData.appleIcon) {
+        appleIcon = page.root + metaData.appleIcon;
+    };
+-
+- if (appleIcon)
+    link(rel="apple-touch-icon" sizes="180x180" href=appleIcon)
+
+
+//---------- andoroid-touch-icon ----------//
+-
+    var androidIcon = null;
+    if (metaData.androidIcon) {
+        androidIcon = page.root + metaData.androidIcon;
+    };
+-
+- if (androidIcon)
+    link(rel="apple-touch-icon" sizes="192x192" href=androidIcon)

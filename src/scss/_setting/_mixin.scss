@@ -1,0 +1,107 @@
+// ------------------------------
+// mixin
+// ------------------------------
+
+// font-sizeをpx→vwに変換
+@mixin fz-vw($font-size: 13, $viewport: $site-w-pc){
+    $font-size: strip-unit($font-size);
+    $viewport: strip-unit($viewport);
+    font-size: get_vw($font-size, $viewport);
+    @media screen and (min-width: $site-w-pc) {
+        font-size: $font-size * 1px;
+    }
+}
+
+// 10px未満のfont-size指定
+@mixin fz-small($scale: .8, $origin: left top){
+    font-size: 10px;
+    transform: scale($scale);
+    transform-origin: $origin;
+    width: 10 / $scale * 10 * 1%;
+}
+
+// transition
+@mixin transition($property: all, $duration: .2s, $delay: 0, $ease: $ease-1){
+    transition-property: $property;
+    transition-duration: $duration;
+    transition-delay: $delay;
+    transition-timing-function: $ease;
+}
+
+// 上下中央揃え
+@mixin center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// hover
+@mixin hover($defautColor: $color-black, $defautBgcolor: transparent, $color: $defautColor, $bgcolor: $defautBgcolor, $opacity: 1){
+    color: $defautColor;
+    background-color: $defautBgcolor;
+    &:hover{
+        color: $color;
+        background-color: $bgcolor;
+        opacity: $opacity;
+    }
+    @media screen and (max-width: $breakPoint){
+        &:hover{
+            color: $defautColor;
+            background-color: $defautBgcolor;
+            opacity: 1;
+        }
+    }
+}
+
+// くの字矢印
+@mixin arrow($size: 6, $bold: 2, $color: $color-black, $deg: right) {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    border-color: $color;
+    border-style: solid;
+    border-width: 0 #{$bold}px #{$bold}px 0;
+    height: #{$size}px;
+    width: #{$size}px;
+
+    @if ($deg == left) {
+        transform: rotate(135deg);
+    }
+    @if ($deg == top) {
+        transform: rotate(225deg);
+    }
+    @if ($deg == right) {
+        transform: rotate(-45deg);
+    }
+    @if ($deg == bottom) {
+        transform: rotate(45deg);
+    }
+}
+
+// 三角
+@mixin triangle($width: 8, $height: 12, $color: $color-white, $deg: right) {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 0;
+    height: 0;
+    border-style: solid;
+
+    @if ($deg == top) {
+        border-width: 0 #{round($width / 2)}px #{$height}px #{round($width / 2)}px;
+        border-color: transparent transparent $color transparent;
+    }
+    @if ($deg == bottom) {
+        border-width: #{$height}px #{round($width / 2)}px 0 #{round($width / 2)}px;
+        border-color: $color transparent transparent transparent;
+    }
+    @if ($deg == left) {
+        border-width:  #{round($height / 2)}px #{$width}px #{round($height / 2)}px 0;
+        border-color: transparent $color transparent transparent;
+    }
+    @if ($deg == right) {
+        border-width: #{round($height / 2)}px 0 #{round($height / 2)}px #{$width}px;
+        border-color: transparent transparent transparent $color;
+    }
+}

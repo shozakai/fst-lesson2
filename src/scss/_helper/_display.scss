@@ -1,0 +1,31 @@
+// ------------------------------
+// display
+// ------------------------------
+
+.h-pc{
+    display: block;
+}
+.h-sp{
+    display: none;
+}
+br.h-pc{
+    display: inline-block;
+}
+br.h-sp{
+    display: none;
+}
+
+@media screen and (max-width: $breakPoint){
+    .h-pc{
+        display: none;
+    }
+    .h-sp{
+        display: block;
+    }
+    br.h-pc{
+        display: none;
+    }
+    br.h-sp{
+        display: inline-block;
+    }
+}

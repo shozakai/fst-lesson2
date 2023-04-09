@@ -1,0 +1,39 @@
+block vars
+
+//- data
+include ../_data/_meta
+
+//- mixin
+include ../_mixin/_btn
+
+| <!DOCTYPE html>
+html(lang="ja")
+    head
+        include ../_template/_meta
+
+        block css
+
+    body(class=page.class)
+        // app
+        .l-app
+
+            // header
+            include ../_component/_header
+            // /header
+
+            // nav
+            include ../_component/_nav
+            // /nav
+
+            // main
+            .l-main
+                block content
+            // /main
+
+            // footer
+            include ../_component/_footer
+            // /footer
+
+        // /app
+
+        block js

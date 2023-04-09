@@ -1,0 +1,25 @@
+// ------------------------------
+// function
+// ------------------------------
+
+// 単位を無視する
+@function strip-unit($number){
+    @if type-of($number) and not unitless($number){
+        @return $number / ($number * 0 + 1);
+    }
+    @return $number;
+}
+
+// pxをvwに変換して返す
+@function get_vw($size, $viewport){
+    $rate: 100 / $viewport;
+    @return $rate * $size * 1vw;
+}
+
+// pxを%に変換して返す
+@function get-percent($width: 100, $parentWidth: $site-w-pc){
+    $width: strip-unit($width);
+    $parentWidth: strip-unit($parentWidth);
+
+    @return round(($width / $parentWidth ) * 10000%) / 100;
+}

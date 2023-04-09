@@ -1,0 +1,42 @@
+// ------------------------------
+// base
+// ------------------------------
+
+html{
+    font-size: 62.5%;
+}
+body{
+    min-width: $site-w-min;
+    background: $color-white;
+    color: $color-black;
+    line-height: 1.6;
+    font-size: 1.4rem;
+    @extend .h-font--yugo;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-break: strict;
+}
+a{
+    outline: none;
+    text-decoration: none;
+    color: $color-black;
+    @include transition;
+    &:hover{
+        opacity: .6;
+    }
+}
+img{
+    width: 100%;
+    height: auto;
+    user-select: none;
+}
+
+@media screen and (max-width: $breakPoint){
+    a{
+        &:hover{
+            opacity: 1;
+        }
+    }
+}

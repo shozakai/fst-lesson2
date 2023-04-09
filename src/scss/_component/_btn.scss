@@ -1,0 +1,20 @@
+// ------------------------------
+// btn
+// ------------------------------
+
+.c-btn{
+    a{
+        display: inline-block;
+        text-align: center;
+		min-width: 200px;
+        padding: .65em;
+    }
+}
+
+@media screen and (max-width: $breakPoint){
+	.c-btn{
+        a{
+			width: 100%;
+        }
+	}
+}

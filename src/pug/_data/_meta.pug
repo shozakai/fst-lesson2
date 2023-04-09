@@ -1,0 +1,32 @@
+-
+    var metaData = {
+        url: isProduction ? 'https://dummy.com/' : 'http://0.0.0.0:3000/',
+
+        title: 'タイトル',
+        des: 'ディスクリプション',
+        keywords: ['キーワード','キーワード'],
+        author: 'クライアント名',
+        canonical: isProduction ? 'https://dummy.com/' : 'http://0.0.0.0:3000/',
+
+        og: {
+            title: 'OGタイトル',
+            des: 'OGディスクリプション',
+            url: isProduction ? 'https://dummy.com/' : 'http://0.0.0.0:3000/',
+            image: 'assets/images/common/ogp.png',
+            siteName: 'サイト名',
+            fbAppId: 'FacebookのApp-ID'
+        },
+
+        tw: {
+            card: 'summary_large_image',
+            site: '@Twitterユーザー名',
+            title: 'Twitterタイトル',
+            des: 'Twitterディスクリプション',
+            image: 'assets/images/common/ogp.png'
+        },
+
+        favicon: 'assets/images/common/favicon.ico',
+        appleIcon: 'assets/images/common/appleicon.png',
+        androidIcon: 'assets/images/common/androidicon.png'
+    };
+-
