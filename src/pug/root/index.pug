@@ -11,3 +11,21 @@ block vars
 block content
 
     section.visual
+        .l-inner
+            .visual__content
+                h1.visual__ttl 仏度診断
+                p.visual__txt
+                    | あなたは人のミスやわがまま、どれくらい許せる？あなたは心の広い人？
+                    br
+                    | あなたを診断してみましょう～！
+                section.visual__body#js-body
+                    p.visual__num#js-num Q1
+                    h2.visual__question#js-question
+                        | トイレの行列であなたの後ろに並んだ親子連れの子どもがグズっている様子。
+                        br
+                        | 自分も限界だけど順番がきたときに親子に譲りますか？
+                    .visual__btns
+                        button.visual__btn.visual__btn.js-btn(type="button" name="yes" value="5") YES
+                        button.visual__btn.visual__btn--pink.js-btn(type="button" name="no" value="0") N0
+                    button.visual__back#js-back(type="button" name="back") 一つ前に戻る
+                    .visual__ill: img#js-ill(src=page.root + 'assets/images/home/image5.png' alt="")

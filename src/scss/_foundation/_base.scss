@@ -7,9 +7,9 @@ html{
 }
 body {
     min-width: $site-w-min;
-    background: $color-gold;
+    background: url("../images/home/bg.jpg") repeat center / 1728px 1117px;
     color: $color-white;
-    line-height: 1.6;
+    line-height: 1.8;
     font-size: 1.4rem;
     @extend .h-font--kiwi;
     font-weight: 500;
