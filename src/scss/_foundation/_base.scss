@@ -5,13 +5,14 @@
 html{
     font-size: 62.5%;
 }
-body{
+body {
     min-width: $site-w-min;
-    background: $color-white;
-    color: $color-black;
+    background: $color-gold;
+    color: $color-white;
     line-height: 1.6;
     font-size: 1.4rem;
-    @extend .h-font--yugo;
+    @extend .h-font--kiwi;
+    font-weight: 500;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     word-wrap: break-word;
@@ -21,7 +22,7 @@ body{
 a{
     outline: none;
     text-decoration: none;
-    color: $color-black;
+    color: $color-white;
     @include transition;
     &:hover{
         opacity: .6;
