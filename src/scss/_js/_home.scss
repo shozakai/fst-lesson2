@@ -1,0 +1,14 @@
+// ------------------------------
+// home
+// ------------------------------
+
+#js-result {
+    display: none;
+    opacity: 0;
+}
+
+.js-btn {
+    &--back {
+        display: none;
+    }
+}
